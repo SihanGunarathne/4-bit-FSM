@@ -1,0 +1,11 @@
+|Four_bit_FSM
+Start => next_state.WAIT1.DATAB
+Start => next_state.WAIT2.DATAB
+Start => next_state.WAIT3.DATAB
+Start => Selector0.IN1
+Start => current_state.INIT.DATAIN
+clock => current_state~1.DATAIN
+reset => current_state~3.DATAIN
+detector_out <= detector_out.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,118 @@
+module Four_bit_FSM(sequence_in,clock,reset,detector_out
+    );
+input clock; // clock signal
+input reset; // reset input
+input sequence_in; // binary input
+output reg detector_out; // output of the sequence detector
+parameter  INIT=3'b0000, // "Zero" State
+  WAIT1=3'b0001, // "One" State
+  WAIT2=3'b0011, // "OneZero" State
+  WAIT3=3'b0111, // "OnceZeroOne" State
+  READY=3'b1111;// "OneZeroOneOne" State
+reg [2:0] current_state, next_state; // current state and next state
+// sequential memory of the Moore FSM
+always @(posedge clock, posedge reset)
+begin
+ if(reset==1) 
+ current_state <= INIT;// when reset=1, reset the state of the FSM to "Zero" State
+ else
+ current_state <= next_state; // otherwise, next state
+end 
+// combinational logic of the Moore FSM
+// to determine next state 
+always @(current_state,sequence_in)
+begin
+ case(current_state) 
+ INIT:begin
+  if(sequence_in==1)
+   next_state = WAIT1;
+  else
+   next_state = INIT;
+ end
+ WAIT1:begin
+  if(sequence_in==1)
+   next_state = WAIT2;
+  else
+   next_state = INIT;
+ end
+ WAIT2:begin
+  if(sequence_in==1)
+   next_state = WAIT3;
+  else
+   next_state = INIT;
+ end 
+ WAIT3:begin
+  if(sequence_in==1)
+   next_state = READY;
+  else
+   next_state = INIT;
+ end
+ READY:begin
+  if(sequence_in==0)
+   next_state = INIT;
+  else
+   next_state = READY;
+ end
+ default:next_state = INIT;
+ endcase
+end
+// combinational logic to determine the output
+// of the Moore FSM, output only depends on current state
+always @(current_state)
+begin 
+ case(current_state) 
+ INIT:   detector_out = 0;
+ WAIT1:   detector_out = 0;
+ WAIT2:  detector_out = 0;
+ WAIT3:  detector_out = 0;
+ READY:  detector_out = 1;
+ default:  detector_out = 0;
+ endcase
+end 
+endmodule
+
+module tb_Sequence_Detector_Moore_FSM_Verilog;
+
+ // Inputs
+ reg sequence_in;
+ reg clock;
+ reg reset;
+
+ // Outputs
+ wire detector_out;
+
+ // Instantiate the Sequence Detector using Moore FSM
+ Sequence_Detector_MOORE_Verilog uut (
+  .sequence_in(sequence_in), 
+  .clock(clock), 
+  .reset(reset), 
+  .detector_out(detector_out)
+ );
+ initial begin
+ clock = 0;
+ forever #5 clock = ~clock;
+ end 
+ initial begin
+  // Initialize Inputs
+  sequence_in = 0;
+  reset = 1;
+  // Wait 100 ns for global reset to finish
+  #30;
+      reset = 0;
+  #40;
+  sequence_in = 1;
+  #10;
+  sequence_in = 0;
+  #10;
+  sequence_in = 1; 
+  #20;
+  sequence_in = 0; 
+  #20;
+  sequence_in = 1; 
+  #20;
+  sequence_in = 0;  
+  // Add stimulus here
+
+ end
+      
+endmodule

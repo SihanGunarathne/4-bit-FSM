@@ -1,0 +1,103 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dG:/6th Semester/HDL/4-bit-FSM
+vFour_bit_FSM
+Z1 !s110 1615018014
+!i10b 1
+!s100 BBbOz0[lKV4H^4PDHZ0b`0
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I7>lijj:`IWBeQV66D2_GH2
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+Z4 dG:/6th Semester/HDL/New folder/4-bit-FSM
+Z5 w1615017543
+Z6 8./Four_bit_FSM.v
+Z7 F./Four_bit_FSM.v
+!i122 18
+L0 1 75
+Z8 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z9 !s108 1615018014.000000
+!s107 ./Four_bit_FSM.v|
+Z10 !s90 -reportprogress|300|./Four_bit_FSM.v|
+!i113 1
+Z11 tCvgOpt 0
+n@four_bit_@f@s@m
+vSequence_Detector_MOORE_Verilog
+Z12 !s110 1614974050
+!i10b 1
+!s100 @7gKCzmB_U0?1D<m_M?Ja1
+R2
+Ia2ngLj51n^UFhEz^FUk9L3
+R3
+R0
+Z13 w1614954517
+Z14 8./Sequence_Detector_MOORE_Verilog.v
+Z15 F./Sequence_Detector_MOORE_Verilog.v
+!i122 8
+L0 1 72
+R8
+r1
+!s85 0
+31
+Z16 !s108 1614974050.000000
+Z17 !s107 ./Sequence_Detector_MOORE_Verilog.v|
+Z18 !s90 -reportprogress|300|./Sequence_Detector_MOORE_Verilog.v|
+!i113 1
+R11
+n@sequence_@detector_@m@o@o@r@e_@verilog
+vtb_Four_bit_FSM
+R1
+!i10b 1
+!s100 HlhH:3e0hY26PQBVh55Xe0
+R2
+IZzef73ldSK6HNkT3JYzgU2
+R3
+R4
+R5
+R6
+R7
+!i122 18
+L0 77 35
+R8
+r1
+!s85 0
+31
+R9
+Z19 !s107 ./Four_bit_FSM.v|
+R10
+!i113 1
+R11
+ntb_@four_bit_@f@s@m
+vtb_Sequence_Detector_Moore_FSM_Verilog
+R12
+!i10b 1
+!s100 Zj5bC_o]8I`<SJhF@@ZTg2
+R2
+I^@AS8MOBXK1^72;mDl3g`2
+R3
+R0
+R13
+R14
+R15
+!i122 8
+L0 74 45
+R8
+r1
+!s85 0
+31
+R16
+R17
+R18
+!i113 1
+R11
+ntb_@sequence_@detector_@moore_@f@s@m_@verilog
